@@ -10,9 +10,14 @@ class Dashboard extends CI_Controller
         $this->load->model('Main_model');
     }
 
-    public function index()
+    function index()
     {
-        echo "welcome to dashboard";
-        //$this->load->view('login');
+        //notifications
+        $this->Main_model->alertPromt('Bug update', 'bugUpdate');
+        $this->Main_model->alertPromt('Bug deleted', 'delete');
+
+        //get the list of bugs
+        $data['bugTable'] = $this->Main_model->get('bugs', 'id');
+        $this->load->view('dashboard', $data);
     }
 }

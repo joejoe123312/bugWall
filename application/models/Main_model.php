@@ -293,4 +293,10 @@ class Main_model extends CI_Model
             return $row->$columnId;
         }
     }
+
+    function notifyAndRedirect($sessionName, $redirect)
+    {
+        $this->session->set_userdata($sessionName, 1);
+        redirect($redirect);
+    }
 }
