@@ -62,4 +62,10 @@ class Bugs extends CI_Controller
         $this->session->set_userdata('delete', 1);
         redirect('Dashboard');
     }
+
+    function tableChange()
+    {
+        $numRows = $this->Main_model->fastCountTable('bugs');
+        echo $numRows;
+    }
 }

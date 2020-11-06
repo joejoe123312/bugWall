@@ -39,7 +39,9 @@ class Login extends CI_Controller
 			}
 		}
 
+		// $this->load->view('includes/header');
 		$this->load->view('login');
+		// $this->load->view('includes/footer');
 	}
 
 	function changePassword()
@@ -84,5 +86,11 @@ class Login extends CI_Controller
 		}
 
 		$this->load->view('changePassword');
+	}
+
+	function logout()
+	{
+		session_destroy();
+		redirect('Login');
 	}
 }

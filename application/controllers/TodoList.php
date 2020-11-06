@@ -62,6 +62,6 @@ class TodoList extends CI_Controller
         $this->Main_model->_delete('todo', 'id', $todoId);
 
         //notify and redirect
-        $this->Main_model->notifyAndRedirect('todoDeleted', 'Todo');
+        $this->Main_model->notifyAndRedirect('todoDeleted', 'TodoList');
     }
 }

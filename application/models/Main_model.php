@@ -299,4 +299,19 @@ class Main_model extends CI_Model
         $this->session->set_userdata($sessionName, 1);
         redirect($redirect);
     }
+
+    function fastCount($table, $where)
+    {
+        $this->db->select('id');
+        $this->db->from($table);
+        $this->db->where($where);
+        $num_results = $this->db->count_all_results();
+
+        return $num_results;
+    }
+
+    function fastCountTable($table)
+    {
+        return $this->db->count_all_results($table, FALSE);
+    }
 }
